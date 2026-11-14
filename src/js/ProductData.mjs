@@ -1,23 +1,28 @@
-function convertToJson(res) {
-  if (res.ok) {
-    return res.json();
-  } else {
-    throw new Error("Bad Response");
-  }
-}
+const baseURL = "https://www.backcountry.com/";
 
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `../json/${this.category}.json`;
+    this.path = `../json/${category}.json`;
   }
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
+
+  async getData() {
+    try {
+      const response = await fetch(this.path);
+
+      if (!response.ok) {
+        throw new Error("Could not retrieve product data");
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Error loading products:", error);
+      return [];
+    }
   }
+
   async findProductById(id) {
     const products = await this.getData();
-    return products.find((item) => item.Id === id);
+    return products.find((product) => product.Id === id);
   }
 }
