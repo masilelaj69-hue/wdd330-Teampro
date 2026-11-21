@@ -1,23 +1,49 @@
-// wrapper for querySelector...returns matching element
+// Select an element from the DOM
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
-// retrieve data from localstorage
+// Get data from localStorage
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
-// save data to local storage
+
+// Save data to localStorage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
-// set a listener for both touchend and click
-export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
-    event.preventDefault();
-    callback();
-  });
-  qs(selector).addEventListener("click", callback);
+
+// Get URL parameters
+export function getParam(param) {
+  const url = new URL(window.location.href);
+  return url.searchParams.get(param);
+}
+
+// Display alert messages
+export function alertMessage(message, scroll = true) {
+  const main = document.querySelector("main");
+
+  if (!main) return;
+
+  // Remove previous alert
+  const oldAlert = main.querySelector(".alert-message");
+
+  if (oldAlert) {
+    oldAlert.remove();
+  }
+
+  const alert = document.createElement("section");
+
+  alert.classList.add("alert-message");
+  alert.setAttribute("role", "alert");
+  alert.textContent = message;
+
+  main.prepend(alert);
+
+  if (scroll) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 }
