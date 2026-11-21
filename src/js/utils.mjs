@@ -25,7 +25,6 @@ export function alertMessage(message, scroll = true) {
 
   if (!main) return;
 
-  // Remove previous alert
   const oldAlert = main.querySelector(".alert-message");
 
   if (oldAlert) {
@@ -33,7 +32,6 @@ export function alertMessage(message, scroll = true) {
   }
 
   const alert = document.createElement("section");
-
   alert.classList.add("alert-message");
   alert.setAttribute("role", "alert");
   alert.textContent = message;

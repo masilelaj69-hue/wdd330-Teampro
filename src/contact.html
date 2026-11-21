@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Sleep Outside for help with your outdoor gear and orders.">
+  <title>Contact Us | Sleep Outside</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #263238;
+      background: #f5f7f4;
+    }
+    header {
+      background: #243e36;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+    }
+    h2 { color: #315b46; }
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: bold;
+    }
+    input, textarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      font: inherit;
+    }
+    textarea { min-height: 130px; }
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #315b46;
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #243e36; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #243e36;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Sleep Outside</a></h1>
+    <p>Your adventure starts here.</p>
+  </header>
+
+  <main>
+    <h2>Contact Us</h2>
+    <p>Have a question about our outdoor gear or your order? Send us a message.</p>
+
+    <form action="mailto:" method="post" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sleep Outside</p>
+    <a href="index.html" style="color:white;">Return to Home</a>
+  </footer>
+</body>
+</html>
